@@ -14,5 +14,5 @@ alias ls='ls -la --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init bash)"
