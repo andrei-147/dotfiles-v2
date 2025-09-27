@@ -50,10 +50,6 @@ window#waybar.hidden {
   background-color: #3d1e1e;
 }
 
-#wireplumber,
-#network,
-#clock,
-#memory,
 #custom-power,
 #battery,
 #backlight,
@@ -81,6 +77,10 @@ window#waybar.hidden {
   font-size: 15px;
   border-radius: 8px 0px 0px 8px;
   color: #1793d1;
+}
+
+#network {
+    padding-right: 0px;
 }
 
 #backlight {
