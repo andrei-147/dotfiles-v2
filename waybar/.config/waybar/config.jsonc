@@ -1,62 +1,91 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 24,
-    "spacing": 5,
-
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["wireplumber", "network", "tray"],
-
+    "spacing": 0,
+    "height": 34,
+    "modules-left": [
+        "custom/logo",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "memory",
+        "network",
+        "wireplumber",
+        "custom/power"
+    ],
     "hyprland/workspaces": {
-        "format": "<span size='larger'>{icon}</span>",
         "on-click": "activate",
+        "format": "{icon}",
         "format-icons": {
-            "active": "\uf444",
-            "default": "\uf4c3"
+            "default": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
         },
-        "icon-size": 10,
-        "sort-by-number": true,
         "persistent-workspaces": {
             "1": [],
             "2": [],
             "3": [],
             "4": [],
-            "5": [],
+            "5": []
         }
     },
-
-    "clock": {
-        "format": "{:%d.%m.%Y | %H:%M}"
+    "memory": {
+        "interval": 5,
+        "format": "󰍛 {}%",
+        "max-length": 10
     },
-
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "{calendar}",
+        "format-alt": "  {:%a, %d %b %Y}",
+        "format": "  {:%I:%M %p}"
+    },
+    "network": {
+        "format-wifi" : "{icon} ",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "format-ethernet": "󰀂",
+	"format-alt" : "󱛇",
+        "format-disconnected" : "󰖪",
+	"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+	"tooltip-format-disconnected": "Disconnected",
+	"interval": 5,
+	"nospacing": 1,
+    },
     "wireplumber": {
-        "format": "\udb81\udd7e  {volume}%",
-        "max-volume": 100,
+        "format": "{icon} ",
+        "format-bluetooth": "󰂰",
+        "nospacing": 1,
+        "tooltip-format": "Volume: {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰖀","󰕾",""]
+        },
+        "on-click": "pavucontrol",
         "scroll-step": 5
     },
-
-    "network": {
-        "format": "",
-        "format-ethernet": "\udb83\udc9d",
-        "format-wifi": "{icon}",
-        "format-disconnected": "\udb83\udc9c",
-        "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-        "tooltip-format-ethernet": "{ifname}",
-        "tooltip-format-disconnected": "Disconnected",
-    },  
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 16
+    "custom/logo": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "tofi-drun --drun-launch=true --font /home/andrei/.local/share/fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
     },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "\udb80\udd76",
-            "deactivated": "\udb83\udfaa"
-        }
+    "custom/power": {
+        "format": "󰤆",
+        "tooltip": false,
+        "on-click": "wlogout"
     }
 }
