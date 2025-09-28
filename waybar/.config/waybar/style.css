@@ -79,8 +79,12 @@ window#waybar.hidden {
   color: #1793d1;
 }
 
+#wireplumber {
+    padding-right: 3px;
+}
+
 #network {
-    padding-right: 0px;
+    padding-right: 13px;
 }
 
 #backlight {

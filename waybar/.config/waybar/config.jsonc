@@ -54,7 +54,7 @@
         "format": "  {:%I:%M %p}"
     },
     "network": {
-        "format-wifi" : "{icon}  ",
+        "format-wifi" : "{icon}",
         "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
         "format-ethernet": "󰀂",
 	"format-alt" : "󱛇",
@@ -66,7 +66,7 @@
 	"nospacing": 1,
     },
     "wireplumber": {
-        "format": "{icon}",
+        "format": "{icon}  ",
         "format-bluetooth": "󰂰",
         "nospacing": 1,
         "tooltip-format": "Volume: {volume}%",
