@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+  if ! zellij attach 2>/dev/null; then
+    zellij
+  fi

@@ -5,7 +5,8 @@
     "height": 34,
     "modules-left": [
         "custom/logo",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/spotify"
     ],
     "modules-center": [
         "clock"
@@ -87,5 +88,13 @@
         "format": "󰤆",
         "tooltip": false,
         "on-click": "wlogout"
+    },
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 /home/andrei/.local/share/mediaplayer.py --player spotify",
+        "format": "{}  ",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
     }
 }
