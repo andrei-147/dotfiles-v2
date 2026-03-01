@@ -16,3 +16,6 @@ PS1='[\u@\h \W]\$ '
 
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init bash)"
+
+# Created by `pipx` on 2025-10-28 15:54:28
+export PATH="$PATH:/home/andrei/dotfiles/scripts/.local/bin"
