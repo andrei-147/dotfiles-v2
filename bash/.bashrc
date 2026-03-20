@@ -18,4 +18,4 @@ PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 
 # Created by `pipx` on 2025-10-28 15:54:28
-export PATH="$PATH:/home/andrei/dotfiles/scripts/.local/bin:/home/andrei/projects/devel/cpp/ezcompile:/home/andrei/projects/bin:/home/andrei/projects/lib:/home/andrei/projects/include"
+export PATH="$PATH:/home/andrei/dotfiles/scripts/.local/bin:/home/andrei/projects/devel/cpp/ezcompile:/home/andrei/dotfiles/kitty"
