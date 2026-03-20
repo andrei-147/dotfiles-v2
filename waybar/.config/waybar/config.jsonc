@@ -1,11 +1,21 @@
 {
     "layer": "top",
     "position": "top",
-    "spacing": 0,
+    "mod": "dock",
     "height": 34,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "spacing": 0,
+    "fixed-center": true,
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "margin-bottom": 0,
     "modules-left": [
         "custom/logo",
         "hyprland/workspaces",
+        "custom/window",
         "custom/spotify"
     ],
     "modules-center": [
@@ -22,67 +32,46 @@
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "default": "",
+            "default": "",
             "1": "1",
             "2": "2",
             "3": "3",
             "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
+            "5": "5"
         },
         "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
+            "1": [], "2": [], "3": [], "4": [], "5": []
         }
+    },
+    "custom/window": {
+        "exec": "~/.config/waybar/scripts/window.sh",
+        "return-type": "json",
+        "restart-interval": 5,
+        "format": "{}",
+        "tooltip": false
     },
     "memory": {
         "interval": 5,
-        "format": "󰍛 {}%",
-        "max-length": 10
-    },
-    "tray": {
-        "spacing": 10
+        "format": "󰍛 {percentage}%"
     },
     "clock": {
-        "tooltip-format": "{calendar}",
-        "format-alt": "  {:%a, %d %b %Y}",
-        "format": "  {:%I:%M %p}"
+        "format": "  {:%I:%M %p}",
+        "format-alt": "  {:%a, %d %b %Y}"
     },
     "network": {
-        "format-wifi" : "{icon}",
-        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "format-wifi": "{icon}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
         "format-ethernet": "󰀂",
-	"format-alt" : "󱛇",
-        "format-disconnected" : "󰖪",
-	"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-	"tooltip-format-disconnected": "Disconnected",
-	"interval": 5,
-	"nospacing": 1,
+        "format-disconnected": "󰖪"
     },
     "wireplumber": {
-        "format": "{icon}  ",
-        "format-bluetooth": "󰂰",
-        "nospacing": 1,
-        "tooltip-format": "Volume: {volume}%",
+        "format": "{icon} ",
         "format-muted": "󰝟",
-        "format-icons": {
-            "headphone": "",
-            "default": ["󰖀","󰕾",""]
-        },
-        "on-click": "pavucontrol",
-        "scroll-step": 5
+        "format-icons": ["󰖀", "󰕾", ""]
     },
     "custom/logo": {
-        "format": "  ",
-        "tooltip": false,
-        "on-click": "tofi-drun --drun-launch=true --font /home/andrei/.local/share/fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
+        "format": "",
+        "tooltip": false
     },
     "custom/power": {
         "format": "󰤆",
@@ -91,10 +80,11 @@
     },
     "custom/spotify": {
         "exec": "/usr/bin/python3 /home/andrei/.local/share/mediaplayer.py --player spotify",
-        "format": "{}  ",
-        "return-type": "json",
-        "on-click": "playerctl play-pause",
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous"
+        "format": "{} ",
+        "return-type": "json"
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
     }
 }
