@@ -1,0 +1,26 @@
+#!/bin/bash
+
+SESSION_FILE="$HOME/.config/kitty/last-session.kitty"
+LOG="$HOME/.config/kitty/session-save.log"
+
+save_session() {
+    kitten @ --to unix:"$SAVED_SOCKET" action "save_as_session --save-only --use-foreground-process $SESSION_FILE" 2>/dev/null
+}
+
+kitty "$@" &
+KITTY_PID=$!
+
+# Wait for socket
+for i in $(seq 1 20); do
+    SAVED_SOCKET=$(ls /tmp/kitty.sock-* 2>/dev/null | head -1)
+    [ -n "$SAVED_SOCKET" ] && break
+    sleep 0.5
+done
+
+# Save every 5 seconds in background while kitty is alive
+while kill -0 $KITTY_PID 2>/dev/null; do
+    save_session
+    sleep 5
+done
+
+echo "$(date): kitty exited" >> "$LOG"
